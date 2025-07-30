@@ -17,6 +17,7 @@ if (!isset($_SESSION['user_id']) && !in_array($page, ['home', 'login', 'register
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barangay Reports System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -40,6 +41,9 @@ if (!isset($_SESSION['user_id']) && !in_array($page, ['home', 'login', 'register
             case 'my_reports':
                 include 'pages/my_reports.php';
                 break;
+            case 'map_view':
+                include 'pages/map_view.php';
+                break;
             case 'analytics':
                 include 'pages/analytics.php';
                 break;
@@ -53,9 +57,12 @@ if (!isset($_SESSION['user_id']) && !in_array($page, ['home', 'login', 'register
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="assets/script.js"></script>
+    <script src="assets/map.js"></script>
 </body>
 </html>
+
 
 
 

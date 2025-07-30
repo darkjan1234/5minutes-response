@@ -63,24 +63,54 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <input type="file" name="photo" class="form-control" accept="image/*">
                     </div>
                     
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label">Latitude</label>
-                                <input type="number" name="latitude" id="latitude" class="form-control" step="any" required>
+                    <div class="mb-3">
+                        <label class="form-label">Location</label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="number" name="latitude" id="latitude" class="form-control" step="any" placeholder="Latitude" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="number" name="longitude" id="longitude" class="form-control" step="any" placeholder="Longitude" required>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label class="form-label">Longitude</label>
-                                <input type="number" name="longitude" id="longitude" class="form-control" step="any" required>
-                            </div>
+                        <div class="mt-2">
+                            <button type="button" class="btn btn-secondary btn-sm" onclick="getLocation()">Get My Location</button>
+                            <button type="button" class="btn btn-info btn-sm" onclick="showMapModal()">Select on Map</button>
                         </div>
                     </div>
                     
-                    <button type="button" class="btn btn-secondary" onclick="getLocation()">Get My Location</button>
                     <button type="submit" class="btn btn-primary">Submit Report</button>
                 </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>Location Preview</h5>
+            </div>
+            <div class="card-body">
+                <div id="preview-map" style="height: 300px; background: #f8f9fa; border-radius: 5px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Map Selection Modal -->
+<div class="modal fade" id="mapModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Select Location on Map</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="selection-map" style="height: 400px;"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="confirmLocation()">Use This Location</button>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <a class="navbar-brand" href="index.php">Barangay Reports</a>
+        <a class="navbar-brand" href="index.php">LGU Tupi Reports</a>
         
         <div class="navbar-nav ms-auto">
             <?php if (isset($_SESSION['user_id'])): ?>
@@ -8,6 +8,9 @@
                 <?php if ($_SESSION['role'] == 'citizen'): ?>
                     <a class="nav-link" href="?page=report">Submit Report</a>
                     <a class="nav-link" href="?page=my_reports">My Reports</a>
+                <?php endif; ?>
+                <?php if ($_SESSION['role'] != 'citizen'): ?>
+                    <a class="nav-link" href="?page=map_view">Map View</a>
                 <?php endif; ?>
                 <?php if ($_SESSION['role'] == 'supervisor'): ?>
                     <a class="nav-link" href="?page=analytics">Analytics</a>
